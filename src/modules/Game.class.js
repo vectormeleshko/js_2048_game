@@ -170,23 +170,21 @@ class Game {
     }
 
     if (!hasEmpty) {
-      // Оце твій крутий цикл перевірки сусідів, який ти написав:
       for (let r = 0; r < 4; r++) {
         for (let c = 0; c < 4; c++) {
           if (
             (c < 3 && this.board[r][c] === this.board[r][c + 1]) ||
             (r < 3 && this.board[r][c] === this.board[r + 1][c])
           ) {
-            return; // Хід є, граємо далі!
+            return;
           }
         }
       }
-      // Якщо навіть сусідів однакових немає — ось тоді точно програш:
       this.status = 'lose';
     }
   }
   start() {
-    this.status = 'playing'; // спочатку статус
+    this.status = 'playing';
     this.spawnTile();
     this.spawnTile();
   }
